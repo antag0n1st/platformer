@@ -10,6 +10,8 @@
     GameScreen.prototype.initialize = function() {
         this.screen_initialize();  
         
+        
+        // bojan added this
     
         
         plane = this.plane = new Plane();
