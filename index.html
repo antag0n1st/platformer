@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>HTML5 Framework</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <script src="lib/sat.js" type="text/javascript" ></script>
+        <script src="lib/kibo.js" type="text/javascript" ></script>
+               
+        <script src="lib/ticker.js" type="text/javascript" ></script>
+        <script src="lib/drawable.js" type="text/javascript" ></script>
+        <script src="lib/sprite.js" type="text/javascript" ></script>
+        <script src="lib/animation.js" type="text/javascript" ></script>
+        <script src="lib/config.js" type="text/javascript" ></script>
+        <script src="lib/content_manager.js" type="text/javascript" ></script>
+        <script src="lib/sprite_sheet.js" type="text/javascript" ></script>
+        <script src="lib/stage.js" type="text/javascript" ></script>
+        <script src="lib/uid.js" type="text/javascript" ></script>
+        <script src="lib/helpers.js" type="text/javascript" ></script>        
+        <script src="lib/event.js" type="text/javascript" ></script>   
+        <script src="lib/input.js" type="text/javascript" ></script>        
+        <script src="lib/easystar-0.1.5.js" type="text/javascript" ></script>        
+        <script src="lib/state_machine.js" type="text/javascript" ></script>
+        <script src="lib/howler.js" type="text/javascript" ></script>
+        
+        <script src="lib/actions.js" type="text/javascript" ></script>
+        <script src="lib/bezier.js" type="text/javascript" ></script>
+        <script src="lib/tween_move_to.js" type="text/javascript" ></script>
+        <script src="lib/tween_alpha.js" type="text/javascript" ></script>
+        <script src="lib/tween_scale.js" type="text/javascript" ></script>
+        <script src="lib/tween_rotate.js" type="text/javascript" ></script>
+        <script src="lib/tween_rotate_by.js" type="text/javascript" ></script>
+        <script src="lib/tween_rotate_to.js" type="text/javascript" ></script>
+        <script src="lib/tween_shake.js" type="text/javascript" ></script>
+        <script src="lib/tween_time.js" type="text/javascript" ></script>
+        <script src="lib/tween_blink.js" type="text/javascript" ></script>
+        <script src="lib/tween_pulsate.js" type="text/javascript" ></script>
+        <script src="lib/emitter.js" type="text/javascript" ></script>
+        
+        <script src="game/game.js" type="text/javascript" ></script>
+        <script src="assets/assets.js" type="text/javascript" ></script>
+
+        <script src="lib/screen.js" type="text/javascript" ></script>
+        <script src="lib/game_hud.js" type="text/javascript" ></script>
+        <script src="lib/ui/navigator.js" type="text/javascript" ></script>
+        <script src="lib/ui/button.js" type="text/javascript" ></script>
+        <script src="lib/ui/label.js" type="text/javascript" ></script>
+        <script src="lib/ui/layer.js" type="text/javascript" ></script>        
+        <script src="lib/ui/tableview.js" type="text/javascript" ></script>
+        <script src="lib/ui/tablecell.js" type="text/javascript" ></script>
+        <script src="lib/ui/image_view.js" type="text/javascript" ></script>     
+        
+        <script src="game/ui/screens/loading_screen.js" type="text/javascript" ></script>
+        <script src="game/ui/screens/game_screen.js" type="text/javascript" ></script>
+
+        <script src="game/plane.js" type="text/javascript" ></script>
+        <script src="game/smoke.js" type="text/javascript" ></script>
+        
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        <style type="text/css" scoped="">
+
+            html, body, div, span, applet, object, iframe, 
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
+            a, abbr, acronym, address, big, cite, code, 
+            del, dfn, em, font, img, ins, kbd, q, s, samp, 
+            small, strike, strong, sub, sup, tt, var, 
+            dl, dt, dd, ol, ul, li, 
+            fieldset, form, label, legend, 
+            table, caption, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline}
+
+            :focus{outline:0}
+            body{line-height:1; color:black; background:white; text-align: center; font-family: Cambria, serif; background-repeat: no-repeat; }
+            ol, ul{list-style:none}
+
+            table{border-collapse:separate; border-spacing:0}
+            caption, th, td{text-align:left; font-weight:normal}
+            blockquote:before, blockquote:after, 
+            q:before, q:after{content:""}
+            blockquote, q{quotes:""""}
+            strong{font-weight: bold;}
+
+            #stage
+            {
+                -webkit-transform-origin:  0% 0%;
+                transform-origin: 0% 0%;
+                -ms-transform-origin: 0% 0%;
+
+            }
+            ::-moz-selection{
+                background-color:Transparent;
+            }
+            ::selection {
+                background-color:Transparent;
+            }
+            .element{
+                -webkit-transform-origin:  0% 0%;
+                transform-origin: 0% 0%;
+                -ms-transform-origin: 0% 0%;
+            }
+            body{
+                overflow:hidden;
+
+            }
+
+            body{
+                margin: 0 ;
+                padding: 0 ;
+                color: #666666; 
+                line-height: 1.5 ;
+                font-family: Helvetica, Tahoma, Verdana; 
+                font-size: 12px;
+                transform: translateZ(0px);
+                -ms-transform: translateZ(0px); /* IE 9 */
+                -moz-transform: translateZ(0px); /* Firefox */
+                -webkit-transform: translateZ(0px); /* Safari and Chrome */
+                -o-transform: translateZ(0px); /* Opera */
+
+
+            }
+            #hud{
+                 -webkit-transform-origin:  0% 0%;
+                transform-origin: 0% 0%;
+                -ms-transform-origin: 0% 0%;
+            }
+        </style>
+        <canvas id="stage" style="position: absolute;z-index: 999;left: 0;top:0;"></canvas>
+        <script type="text/javascript">
+
+                var resource_ids = {};
+
+               if (!Config.is_mobile) {
+                   Config.set_screen_size(800, 480);
+                   var game = new Game();
+               }
+
+               
+              
+        </script>
+
+    </body>
+</html>
