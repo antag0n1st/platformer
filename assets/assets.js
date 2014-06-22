@@ -14,7 +14,8 @@ Game.prototype.load_assets = function() {
     
     ContentManager.add_image('hero_run', 'assets/images/hero_run.png');
     ContentManager.add_image('hero_run_left', 'assets/images/hero_run_left.png');
-
+    ContentManager.add_image('idle', 'assets/images/idle.png');
+    ContentManager.add_image('idle_left', 'assets/images/idle_left.png');
     ////////////////////////////////////////////////////////////////////////
 
 };
