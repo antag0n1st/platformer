@@ -16,6 +16,7 @@
         this.hero = new Hero();
         this.hero.set_position(300,250);
         this.hero.play('run');
+        this.hero.set_scale(0.5,0.5);
         this.add_child(this.hero);
         
         var that = this;
