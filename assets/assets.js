@@ -10,6 +10,9 @@ Game.prototype.load_assets = function() {
     ContentManager.add_image('blue', 'assets/images/blue.png');
     ContentManager.add_image('red', 'assets/images/red.png');
     ContentManager.add_image('yellow', 'assets/images/yellow.png');
+    
+    
+    ContentManager.add_image('hero_run', 'assets/images/hero_run.png');
 
     ////////////////////////////////////////////////////////////////////////
 
