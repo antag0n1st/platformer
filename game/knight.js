@@ -1,4 +1,4 @@
-//(function(window,undefined){
+(function(window,undefined){
 
 function Knight() {
     this.initialize();
@@ -53,7 +53,7 @@ Knight.prototype.update = function(dt) {
         if (this.velocity.y === 0 && this.is_on_ground) {
             this.velocity.y = -this.jump_speed;
             this.is_on_ground = false;
-            this.stop();
+            
             this.play('jump', false, this.current_flipped);
         }
     }
@@ -98,23 +98,24 @@ Knight.prototype.update = function(dt) {
         } else
         if (this.velocity.x == 0) {
             if (this.current_animation !== 'idle')
-                this.play('idle', this.current_loop, this.current_flipped);
+                this.play('idle', true, this.current_flipped);
             //this.play("idle" + this.side);
         } else if (this.velocity.x != 0) {
 
             if (this.current_animation !== 'run') {
-                this.play('run', this.current_loop, this.current_flipped);
+                this.play('run', true, this.current_flipped);
             } else {
                 if (this.current_flipped !== flipped)
                 {
                     this.current_flipped = flipped;
-                    this.play('run', this.current_loop, this.current_flipped);
+                    this.play('run', true, this.current_flipped);
                 }
             }
         }
     }
     else
     {
+        
         if (this.controller.is_attacking) {
             if (this.current_animation !== 'fight') {
                 var that = this;
@@ -126,6 +127,6 @@ Knight.prototype.update = function(dt) {
         }
     }
 };
-//    window.Knight = Knight;
+    window.Knight = Knight;
 
-//}(window));
+}(window));
