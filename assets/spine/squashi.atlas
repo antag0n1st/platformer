@@ -1,0 +1,40 @@
+
+squashi.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: xy
+body
+  rotate: false
+  xy: 0, 27
+  size: 127, 99
+  orig: 127, 99
+  offset: 0, 0
+  index: -1
+left_arm
+  rotate: false
+  xy: 127, 58
+  size: 49, 30
+  orig: 49, 30
+  offset: 0, 0
+  index: -1
+left_foot
+  rotate: false
+  xy: 0, 0
+  size: 64, 27
+  orig: 64, 27
+  offset: 0, 0
+  index: -1
+right_arm
+  rotate: false
+  xy: 127, 88
+  size: 53, 38
+  orig: 53, 38
+  offset: 0, 0
+  index: -1
+right_foot
+  rotate: false
+  xy: 64, 1
+  size: 55, 26
+  orig: 55, 26
+  offset: 0, 0
+  index: -1

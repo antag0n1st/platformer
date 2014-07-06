@@ -9,7 +9,7 @@
     Plane.prototype.initialize = function(){        
         
         var sprite_sheet = new SpriteSheet([{
-                image: ContentManager.images.sonic_plane,
+                image: Images.sonic_plane,
                 frames: {x: 4, y: 2},
                 animations: {
                     fly: {start: 0, end: 3, loop: true, duration: 300}
