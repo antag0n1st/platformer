@@ -31,7 +31,7 @@
             that.is_attacking = true;  
         });
         
-        this.kibo.down('up', function() {            
+        this.kibo.down('up', function() {
             that.is_up_pressed = true;
             that.handle_down();
         });
