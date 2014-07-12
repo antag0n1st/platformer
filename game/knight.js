@@ -13,12 +13,14 @@ Knight.prototype.initialize = function() {
     this.play('idle');
     this.velocity = new Vector();
     this.run_speed = 110 / 1000;//px/s
+    this.current_flipped = false;
     this.is_on_ground = true;
     this.jump_speed = 640 / 1000; //px/s
 
     this.gravity = new Vector(0, 0.0015);
 
     this.controller = new PlayerController();
+    this.animation_states = new KnightStates(this);
     this.platforms = [];
 
 };
@@ -34,17 +36,13 @@ Knight.prototype.update = function(dt) {
 
     //////////////////////////////////// update movement
 
-    var flipped = false;
+    
     if (this.controller.is_left) {
         this.velocity.x = -this.run_speed;
-        flipped = true;
-
-        //this.player.side = '_h';
+        this.current_flipped = true;
     } else if (this.controller.is_right) {
         this.velocity.x = this.run_speed;
-        flipped = false;
-
-        //this.side = '';
+        this.current_flipped = false;
     } else {
         this.velocity.x = 0;
     }
@@ -52,13 +50,9 @@ Knight.prototype.update = function(dt) {
     if (this.controller.is_up) {
         if (this.velocity.y === 0 && this.is_on_ground) {
             this.velocity.y = -this.jump_speed;
-            this.is_on_ground = false;
-            
-            this.play('jump', false, this.current_flipped);
+            this.is_on_ground = false;            
         }
     }
-
-
 
 
     var v = this.gravity.clone().scale(dt);
@@ -66,7 +60,6 @@ Knight.prototype.update = function(dt) {
 
 
     ////////////////////////////////update movement
-
 
     var v = this.velocity.clone();
     v.scale(dt);
@@ -84,48 +77,9 @@ Knight.prototype.update = function(dt) {
     }
 
     //////////////////////////////////// handle animations
-    var that = this;
-    if (this.is_on_ground) {
-
-        if (this.controller.is_attacking) {
-            if (this.current_animation !== 'fight') {
-
-                this.play('fight', false, this.current_flipped, function()
-                {
-                    that.controller.is_attacking = false;
-                });
-            }
-        } else
-        if (this.velocity.x == 0) {
-            if (this.current_animation !== 'idle')
-                this.play('idle', true, this.current_flipped);
-            //this.play("idle" + this.side);
-        } else if (this.velocity.x != 0) {
-
-            if (this.current_animation !== 'run') {
-                this.play('run', true, this.current_flipped);
-            } else {
-                if (this.current_flipped !== flipped)
-                {
-                    this.current_flipped = flipped;
-                    this.play('run', true, this.current_flipped);
-                }
-            }
-        }
-    }
-    else
-    {
-        
-        if (this.controller.is_attacking) {
-            if (this.current_animation !== 'fight') {
-                var that = this;
-                this.play('fight', false, this.current_flipped, function()
-                {
-                    that.controller.is_attacking = false;
-                });
-            }
-        }
-    }
+    
+    this.animation_states.update();
+    
 };
     window.Knight = Knight;
 
