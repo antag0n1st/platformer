@@ -21,6 +21,8 @@ Knight.prototype.initialize = function() {
     this.controller = new PlayerController();
     this.animation_states = new KnightStates(this);
     this.platforms = [];
+    
+    this.stateData.setMixByName("run", "fall", 0.1);
 
 };
 
