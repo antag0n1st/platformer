@@ -15,7 +15,7 @@
         // jumping
         // falling
         // attacking
-        Notes.add(this, Notes.NOTE_SIDE_FLIPPED);
+        
 
         var states = [
             {
@@ -104,13 +104,6 @@
 
     KnightStates.prototype.on_state = function(prev_state, current_state, data) {
 
-
-//        if(prev_state.name === 'attacking'){           
-//            this.knight.stop();
-//        }
-
-
-
         if (current_state.name === 'idle') {
             this.knight.play('idle', true, this.knight.current_flipped);
         } else if (current_state.name === 'running') {
@@ -120,10 +113,10 @@
         } else if (current_state.name === 'falling') {
             this.knight.play('fall', true, this.knight.current_flipped);
         } else if (current_state.name === 'attacking') {
-            var that = this;
+          
             this.knight.play('fight', false, this.knight.current_flipped, function()
             {
-                that.knight.controller.is_attacking = false;
+              this.controller.is_attacking = false;
             });
         }
 

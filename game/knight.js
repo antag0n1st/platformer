@@ -26,9 +26,11 @@ Knight.prototype.initialize = function() {
 
 Knight.prototype.on_added_to_parent = function(parent) {
     Drawable.prototype.on_added_to_parent.call(this, parent);
+    Notes.add(this.animation_states, Notes.NOTE_SIDE_FLIPPED);
 };
 Knight.prototype.on_remove_from_parent = function(parent) {
     Drawable.prototype.on_remove_from_parent.call(this, parent);
+    Notes.remove(this.animation_states, Notes.NOTE_SIDE_FLIPPED);
 };
 Knight.prototype.update = function(dt) {
     SpineAnimation.prototype.update.call(this, dt);
