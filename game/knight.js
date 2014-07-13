@@ -13,7 +13,6 @@ Knight.prototype.initialize = function() {
     this.play('idle');
     this.velocity = new Vector();
     this.run_speed = 110 / 1000;//px/s
-    this.current_flipped = false;
     this.is_on_ground = true;
     this.jump_speed = 640 / 1000; //px/s
 
@@ -36,13 +35,21 @@ Knight.prototype.update = function(dt) {
 
     //////////////////////////////////// update movement
 
-    
+   
     if (this.controller.is_left) {
         this.velocity.x = -this.run_speed;
-        this.current_flipped = true;
+        if(this.current_flipped !== true){
+            this.current_flipped = true;
+            Notes.send( Notes.NOTE_SIDE_FLIPPED );
+        }
+        
     } else if (this.controller.is_right) {
         this.velocity.x = this.run_speed;
-        this.current_flipped = false;
+        if(this.current_flipped !== false){
+            this.current_flipped = false;
+            Notes.send( Notes.NOTE_SIDE_FLIPPED );            
+        }
+        
     } else {
         this.velocity.x = 0;
     }

@@ -15,6 +15,7 @@
         // jumping
         // falling
         // attacking
+        Notes.add(this, Notes.NOTE_SIDE_FLIPPED );
 
         var states = [
             {
@@ -125,6 +126,14 @@
                     that.knight.controller.is_attacking = false;
                     log('fight callback');
                });
+        }
+        
+    };
+    
+    KnightStates.prototype.on_note = function(event_name,data,sender){
+        log(event_name);
+        if( this.knight.current_animation !== 'fight' ){
+            this.knight.play(this.knight.current_animation,true,this.knight.current_flipped);
         }
         
     };
