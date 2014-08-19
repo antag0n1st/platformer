@@ -17,6 +17,11 @@
         this.knight.set_scale(0.4);
         this.add_child(this.knight);
         
+        this.enemy = new Enemy();
+        //this.knight.play('run');    
+        this.enemy.set_scale(0.4);
+        this.add_child(this.enemy);
+        
         this.platforms = [];
         
         var solid_platform = new SolidPlatform();
@@ -24,10 +29,10 @@
         solid_platform.set_position(0,450);
         this.platforms.push(solid_platform);
         
-        solid_platform = new SolidPlatform();
-        solid_platform.set_size(80, 50);
-        solid_platform.set_position(300,350);
-        this.platforms.push(solid_platform);
+//        solid_platform = new SolidPlatform();
+//        solid_platform.set_size(80, 50);
+//        solid_platform.set_position(300,350);
+//        this.platforms.push(solid_platform);
         
         solid_platform = new SolidPlatform();
         solid_platform.set_size(80, 50);
@@ -51,6 +56,7 @@
         }
         
         this.knight.platforms = this.platforms;
+        this.enemy.platforms = this.platforms;
         
     };
 
